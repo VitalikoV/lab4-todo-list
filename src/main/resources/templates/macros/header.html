@@ -1,0 +1,77 @@
+<!-- Header -->
+<div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__brand">
+                <a class="brand" href="#"><img class="image__brand" src="/img/logo.png"></a>
+            </div>
+            <nav class="header__menu">
+
+                <a class="header__link" href="#" data-scroll="#home">Home</a>
+                <a class="header__link header__link__red" data-scroll="#immediate" href="#">Immediate</a>
+                <a class="header__link header__link__orange" data-scroll="#normal" href="#">Normal</a>
+                <a class="header__link header__link__green" data-scroll="#done" href="#">Done</a>
+                <button class="new__post__btn">New post</button>
+<!--                <div class="header__avatar">-->
+<!--                    &lt;!&ndash;        <a href="#" class="avatar__text">&ndash;&gt;-->
+<!--                    &lt;!&ndash;          U&ndash;&gt;-->
+<!--                    &lt;!&ndash;        </a>&ndash;&gt;-->
+<!--                </div>-->
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+<!--modal-->
+<div class="modal" style="display: none">
+    <div class="modal__form__newpost">
+
+        <a href="#"><img  class="close__icon" src="/img/close.svg" alt=""></a>
+        <form action="/tasks" method="post">
+            <h1 class="title__modal__form"> Create New Post</h1>
+            <div class="form__group">
+                <label class="new__post__label" for="name">Name</label>
+                <input type="text" name="name" class="form__input" id="name" placeholder="Enter name of task">
+            </div>
+
+            <div class="form__group">
+                <label class="new__post__label" for="description">Description</label>
+                <textarea class="form__input textarea__input" name="description" id="description" rows="5"></textarea>
+            </div>
+            <div class="form__group">
+                <label class="new__post__label" for="startTime">Start Time</label>
+                <input type="text" class="form__input" name="startTime" id="startTime" placeholder="07:00:00">
+            </div>
+            <div class="form__group">
+                <label class="new__post__label" for="endTime">Finish Time</label>
+                <input type="text" class="form__input" name="endTime" id="endTime" placeholder="08:00:00">
+            </div>
+
+
+<!--            <input id="importance" name="importance">-->
+
+            <ul>
+                <li th:each="importance : ${importanceValues}">
+                    <input type="checkbox" th:value="${importance}" id="importance" name="importance">
+                    <label th:text="${importance}"></label>
+                </li>
+            </ul>
+
+            <button type="submit" class="new__post__btn btn__submit" formmethod="post">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+<!--<div>-->
+<!--  <ul>-->
+<!--    <li>Settings</li>-->
+<!--    <li>Log Out</li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+
+

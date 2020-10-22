@@ -1,0 +1,52 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<header th:insert="macros/headerForTask.html :: headerForTask"></header>
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+
+<form method="post">
+    <div class="form__group">
+        <label class="new__post__label" for="name">Name</label>
+        <input type="text" name="name" class="form__input" id="name" th:value="${task.get().getName()}">
+    </div>
+
+    <div class="form__group">
+        <label class="new__post__label" for="description">Description</label>
+        <textarea name="description" class="form__input textarea__input" id="description" rows="5" th:text="${task.get().getDescription()}"></textarea>
+    </div>
+    <div class="form__group">
+        <label class="new__post__label" for="startTime">Start Time</label>
+        <input type="text" class="form__input" name="startTime" id="startTime" th:value="${task.get().getStartTime()}">
+    </div>
+    <div class="form__group">
+        <label class="new__post__label" for="endTime">Finish Time</label>
+        <input type="text" class="form__input" name="endTime" id="endTime" th:value="${task.get().getEndTime()}">
+    </div>
+
+    <ul>
+    <li th:each="importance : ${importanceValues}">
+    <input type="checkbox" th:value="${importance}" id="importance" name="importance">
+        <label th:text="${importance}"></label>
+    </li>
+    </ul>
+
+    <div class="template__buttons">
+        <button class="new__post__btn">cancel</button>
+        <button class="new__post__btn" type="submit" formmethod="post">done</button>
+    </div>
+</form>
+
+
+<footer th:insert="macros/footer.html :: footer" class="footer__absolute"></footer>
+<script src="/js/app.js"></script>
+</body>
+</html>

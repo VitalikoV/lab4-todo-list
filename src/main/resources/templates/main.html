@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hi</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+<header th:insert="macros/header.html :: header"></header>
+
+
+<h1 class="list__title" id="home">List Of Tasks</h1>
+
+<div class="search__container">
+    <table class="elements__container">
+        <tr>
+            <td class="icon__cell">
+                <a href="#">
+                    <img src="/img/search.png" height="30px" width="30px">
+                </a>
+            </td>
+            <td>
+                <input class="search" type="text" placeholder="search">
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div  class="name__container">
+    <h2 class="task__groupname" id="immediate">Immediate</h2>
+    <img class="arrow" id="up__immediate" src="/img/up-arrow.png">
+    <img class="arrow" id="down__immediate" src="/img/down-arrow.png">
+</div>
+<div  class="task__block important" th:each="task : ${tasks}">
+    <div class="task immediate" th:if="${task.importance == 'important'}">
+        <a class="task__link" th:href="@{'/tasks/' + ${task.id}}" style="width: 100%; height: 100%; text-decoration: none">
+        <div class="block__information" >
+            <h3 class="task__title" th:text="${task.name}"></h3>
+            <p class="task__description" th:text="${task.description}"></p>
+
+            <div class="task__time">
+                <h6 class="task__start" th:text="${task.startTime}"></h6>
+                -
+                <h6 class="task__end " th:text="${task.endTime}"></h6>
+                <h3 class="task__importance" th:text="${task.importance}"></h3>
+            </div>
+        </div>
+        </a>
+        <div class="task__settings">
+            <a class="settings__icon" th:href="@{'/tasks/' + ${task.getId()} + '/edit'}">
+                <img class="agree__btn" src="/img/modify_2.png">
+            </a>
+
+            <a class="settings__icon" th:href="@{'/tasks/' + ${task.getId()} + '/done'}">
+                <img class="agree__btn" src="/img/check.svg" >
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="name__container">
+    <h2 class="task__groupname" id="normal">To Do</h2>
+    <img class="arrow" id="up__normal" src="/img/up-arrow.png">
+    <img class="arrow" id="down__normal" src="/img/down-arrow.png">
+</div>
+<div class="task__block" th:each="task : ${tasks}">
+    <div class="task normal" th:if="${task.importance == 'normal'}">
+        <a class="task__link" th:href="@{'/tasks/' + ${task.id}}" style="width: 100%; height: 100%; text-decoration: none">
+
+        <div class="block__information">
+            <h3 class="task__title" th:text="${task.name}"></h3>
+            <p class="task__description" th:text="${task.description}"></p>
+
+            <div class="task__time">
+                <h6 class="task__start" th:text="${task.startTime}"></h6>
+                -
+                <h6 class="task__end " th:text="${task.endTime}"></h6>
+                <h3 th:text="${task.importance}"></h3>
+            </div>
+        </div>
+        </a>
+        <div class="task__settings">
+            <a class="settings__icon" th:href="@{'/tasks/' + ${task.getId()} + '/edit'}">
+                <img class="agree__btn" src="/img/modify_2.png">
+            </a>
+
+            <a class="settings__icon" th:href="@{'/tasks/' + ${task.getId()} + '/done'}">
+                <img class="agree__btn" src="/img/check.svg">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="name__container">
+    <h2 class="task__groupname" id="done">Done</h2>
+    <img class="arrow" id="up__done" src="/img/up-arrow.png">
+    <img class="arrow" id="down__done" src="/img/down-arrow.png">
+</div>
+<div class="task__block" th:each="task : ${tasks}">
+    <div class="task done" th:if="${task.importance == 'done'}">
+        <a class="task__link" th:href="@{'/tasks/' + ${task.id}}" style="width: 100%; height: 100%; text-decoration: none">
+        <div class="block__information">
+            <h3 class="task__title" th:text="${task.name}"></h3>
+            <p class="task__description" th:text="${task.description}"></p>
+            <div class="task__time">
+                <h6 class="task__start" th:text="${task.startTime}"></h6>
+                -
+                <h6 class="task__end " th:text="${task.endTime}"></h6>
+                <h3 th:text="${task.importance}"></h3>
+            </div>
+        </div>
+        </a>
+    </div>
+</div>
+
+
+<footer th:insert="macros/footer.html :: footer"></footer>
+<script src="/js/app.js"></script>
+</body>
+</html>

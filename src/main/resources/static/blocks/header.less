@@ -1,0 +1,182 @@
+//main: ../style.less
+@import "../vars";
+
+.header{
+  margin-top: -50px;
+  background-color: @white;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  //margin-left: -30px;
+
+}
+
+.image__brand{
+  width: 150px;
+  height: 60px;
+  margin-top: 15px;
+}
+.header__inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -15px;
+}
+
+
+
+.header__link{
+  margin-left: 25px;
+  color: @black;
+  text-decoration: none;
+  font-size: 17px;
+  text-transform: uppercase;
+
+  &:last-child{
+    margin-right: 20px;
+  }
+}
+
+//.header__avatar{
+//  background-color: grey;
+//  display: inline;
+//  overflow: hidden;
+//  border-radius: 50px;
+//  padding: 15px;
+//  margin-left: 20px;
+//
+//
+//}
+//
+//.avatar__text{
+//  font-size: 30px;
+//  text-align: center;
+//  text-decoration: none;
+//  color: #000000;
+//  overflow: hidden;
+//
+//}
+
+.header__link__red{
+  color: fade(@red, 75%);
+  transition: color .2s linear;
+
+  &:hover{
+    color: fade(@red, 100%);
+  }
+}
+
+.header__link__orange{
+  color: fade(@yellow, 75%);
+  transition: color .2s linear;
+  &:hover{
+    color: fade(@yellow, 100%);
+  }
+}
+
+.header__link__green{
+  color: fade(@green, 75%);
+  transition: color .2s linear;
+
+  &:hover{
+    color: fade(@green, 100%);
+  }
+}
+
+//modal
+
+
+.modal{
+  display: none;
+  background-color: fade(@black, 50%);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal__form__newpost{
+  width: 500px;
+  height: 600px;
+  background-color: @white;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 0 30px fade(@black, 80%);
+
+}
+
+
+
+
+.title__modal__form{
+  font-size: 40px;
+  font-weight: 600;
+  margin: 20px 0 10px 30px;
+}
+
+.new__post__label{
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 10px 0 10px 30px;
+}
+
+.form__input{
+  width: 80%;
+  height: 25px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-left: 30px;
+  border: 2px solid fade(@black, 50%);
+  border-radius: 15px;
+  // padding-left: 15px;
+  padding: 5px 10px 5px 10px;
+  box-shadow: 0 0 10px fade(@black, 20%);
+
+  transition: border .2s linear;
+  transition: box-shadow .2s linear;
+
+  &:focus{
+    outline: none;
+    border: 2px solid fade(@orange, 80%);
+    box-shadow: 0 0 15px fade(@black, 50%);
+
+  }
+
+
+}
+
+.textarea__input{
+  height: 80px;
+  resize: none;
+}
+
+
+
+.modal__done{
+  height: 150px;
+  width: 400px;
+  background-color: @white;
+  margin: auto;
+  position: relative;
+}
+
+.done__title{
+  margin: 10px 0 0 10px;
+  font-size: 30px;
+}
+
+.done__text{
+  margin: 15px 0 0 10px;
+}
+
+
+
+.group__btn{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 20px 20px 0;
+}

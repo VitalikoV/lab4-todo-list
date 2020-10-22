@@ -1,0 +1,244 @@
+//main: ../style.less
+@import "../vars";
+
+
+.task__groupname{
+  font-size: 30px;
+  margin-left: 50px;
+  display: inline-block;
+}
+
+.task__block{
+  position: relative;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px fade(#000, 25%);
+  transition: box-shadow .2s linear;
+  cursor: pointer;
+
+  &:hover{
+    box-shadow: 0 0 15px fade(#000, 70%);
+  }
+}
+
+
+.arrow{
+  display: inline-block;
+  height: 28px;
+  width: 30px;
+  border-radius: 5px;
+  transition: background .2s linear;
+  margin-left: 10px;
+  margin-bottom: -6px;
+  &:hover{
+    background: fade(#000, 10%);
+  }
+}
+
+.task{
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+
+}
+.immediate{
+  background-color: fade(@red, 70%);
+  transition: background-color .2s linear;
+  &:hover{
+    background-color: fade(@red, 85%);
+  }
+}
+
+.normal{
+  background-color: fade(@yellow, 70%);
+  transition: background-color .2s linear;
+
+  &:hover{
+    background-color: fade(@yellow, 85%);
+  }
+}
+
+.found{
+  background-color: fade(@orange, 70%);
+  transition: background-color .2s linear;
+
+  &:hover{
+    background-color: fade(@orange, 85%);
+  }
+}
+
+.found:first-child{
+  margin-top: 10px;
+
+}
+
+.done{
+  background-color: fade(@green, 70%);
+  transition: background-color .2s linear;
+
+  &:hover{
+    background-color: fade(@green, 80%);
+  }
+}
+
+.task__title{
+  color: @black;
+  font-size: 30px;
+  margin: 10px 0 0 20px;
+  font-weight: 700;
+}
+
+.task__description{
+  color: @dark-grey;
+  font-size: 20px;
+  margin: 10px 40px 0 40px;
+}
+
+.task__time{
+  color: @black;
+  font-size: 30px;
+  margin: 10px 0 20px 20px;
+}
+
+.task__start{
+  display: inline;
+  color: @dark-grey;
+}
+
+.task__end{
+  display: inline;
+  color: @dark-grey;
+
+}
+
+.agree__btn{
+  height: 25px;
+  width: 25px;
+  margin: 10px 10px 0 0;
+  text-decoration: none;
+  background-color: fade(@black, 0%);
+  transition: background-color .2s linear;
+  &:hover{
+    background-color: fade(@black, 20%);
+    border-radius: 5px;
+  }
+}
+
+.task__settings{
+  position: absolute;
+  right: 0%;
+}
+
+.settings__icon{
+  text-decoration: none;
+}
+
+.task__importance{
+  color: @black;
+}
+
+//.task__link{
+//  width: 100%;
+//  height: 100%;
+//  text-decoration: none;
+//}
+
+//modal
+
+
+.modal{
+  display: flex;
+  background-color: fade(@black, 50%);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal__form__newpost{
+  width: 500px;
+  height: 600px;
+  background-color: @white;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 0 30px fade(@black, 80%);
+
+}
+
+
+
+
+.title__modal__form{
+  font-size: 50px;
+  font-weight: 600;
+  margin: 20px 0 10px 30px;
+}
+
+.new__post__label{
+  display: block;
+  font-size: 23px;
+  font-weight: 300;
+  margin: 10px 0 10px 30px;
+}
+
+.form__input{
+  width: 80%;
+  height: 35px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-left: 30px;
+  border: 2px solid fade(@black, 50%);
+  border-radius: 15px;
+  // padding-left: 15px;
+  padding: 5px 15px 5px 15px;
+  box-shadow: 0 0 10px fade(@black, 20%);
+
+  transition: border .2s linear;
+  transition: box-shadow .2s linear;
+
+  &:focus{
+    outline: none;
+    border: 2px solid fade(@orange, 80%);
+    box-shadow: 0 0 15px fade(@black, 50%);
+
+  }
+
+
+}
+
+.textarea__input{
+  height: 80px;
+  resize: none;
+}
+
+
+
+.modal__done{
+  height: 150px;
+  width: 400px;
+  background-color: @white;
+  margin: auto;
+  position: relative;
+}
+
+.done__title{
+  margin: 10px 0 0 10px;
+  font-size: 30px;
+}
+
+.done__text{
+  margin: 15px 0 0 10px;
+}
+
+
+
+.group__btn{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 20px 20px 0;
+}
