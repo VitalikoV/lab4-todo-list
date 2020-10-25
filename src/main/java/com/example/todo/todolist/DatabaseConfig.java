@@ -1,53 +1,53 @@
-package com.example.todo.todolist;
-
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Map;
-
-@Configuration
-public class DatabaseConfig {
-    @Value("${spring.database.url")
-    private String dbUrl;
+//package com.example.todo.todolist;
 //
-//    @Autowired
-//    private DataSource dataSource;
+//import com.zaxxer.hikari.HikariConfig;
+//import com.zaxxer.hikari.HikariDataSource;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.web.bind.annotation.RequestMapping;
 //
-//    @RequestMapping("/db")
-//    String db(Map<String, Object> model) {
-//        try (Connection connection = dataSource.getConnection()) {
-//            Statement stmt = connection.createStatement();
-//            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-//            stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-//            ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+//import javax.sql.DataSource;
+//import java.sql.Connection;
+//import java.sql.ResultSet;
+//import java.sql.Statement;
+//import java.util.ArrayList;
+//import java.util.Map;
 //
-//            ArrayList<String> output = new ArrayList<String>();
-//            while (rs.next()) {
-//                output.add("Read from DB: " + rs.getTimestamp("tick"));
-//            }
+//@Configuration
+//public class DatabaseConfig {
+//    @Value("${spring.database.url")
+//    private String dbUrl;
+////
+////    @Autowired
+////    private DataSource dataSource;
+////
+////    @RequestMapping("/db")
+////    String db(Map<String, Object> model) {
+////        try (Connection connection = dataSource.getConnection()) {
+////            Statement stmt = connection.createStatement();
+////            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+////            stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+////            ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+////
+////            ArrayList<String> output = new ArrayList<String>();
+////            while (rs.next()) {
+////                output.add("Read from DB: " + rs.getTimestamp("tick"));
+////            }
+////
+////            model.put("records", output);
+////            return "db";
+////        } catch (Exception e) {
+////            model.put("message", e.getMessage());
+////            return "error";
+////        }
+////    }
 //
-//            model.put("records", output);
-//            return "db";
-//        } catch (Exception e) {
-//            model.put("message", e.getMessage());
-//            return "error";
-//        }
+//    @Bean
+//    public DataSource dataSource(){
+//        HikariConfig config = new HikariConfig();
+//        config.setJdbcUrl(dbUrl);
+//        return new HikariDataSource(config);
 //    }
-
-    @Bean
-    public DataSource dataSource(){
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(dbUrl);
-        return new HikariDataSource(config);
-    }
-}
+//}
