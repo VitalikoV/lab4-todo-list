@@ -21,10 +21,17 @@ public class MainController {
     @Autowired
     private TaskService taskService;
 
+    @GetMapping("/")
+    public String main(Model model) {
+        Iterable<Task> tasks = taskService.loadAllTasks();
+        model.addAttribute("tasks", tasks);
+        model.addAttribute("importanceValues", List.of("important", "normal"));
+        return "main";
+    }
 
     //    Show all tasks
     @GetMapping("/tasks")
-    public String main(Model model) {
+    public String mainTasks(Model model) {
         Iterable<Task> tasks = taskService.loadAllTasks();
         model.addAttribute("tasks", tasks);
         model.addAttribute("importanceValues", List.of("important", "normal"));
