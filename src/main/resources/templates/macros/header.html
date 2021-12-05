@@ -13,11 +13,6 @@
                 <a class="header__link header__link__orange" data-scroll="#normal" href="#">Normal</a>
                 <a class="header__link header__link__green" data-scroll="#done" href="#">Done</a>
                 <button class="new__post__btn">New post</button>
-<!--                <div class="header__avatar">-->
-<!--                    &lt;!&ndash;        <a href="#" class="avatar__text">&ndash;&gt;-->
-<!--                    &lt;!&ndash;          U&ndash;&gt;-->
-<!--                    &lt;!&ndash;        </a>&ndash;&gt;-->
-<!--                </div>-->
             </nav>
         </div>
     </div>
@@ -25,7 +20,7 @@
 
 
 <!--modal-->
-<div class="modal" style="display: none">
+<div class="modal" style="display: none;">
     <div class="modal__form__newpost">
 
         <a href="#"><img  class="close__icon" src="/img/close.svg" alt=""></a>
@@ -50,10 +45,8 @@
             </div>
 
 
-<!--            <input id="importance" name="importance">-->
-
-            <ul>
-                <li th:each="importance : ${importanceValues}">
+            <ul style="white-space:nowrap; list-style-type: none; margin-bottom: -5px">
+                <li style="display: inline; margin-right: 10px;" th:each="importance : ${importanceValues}">
                     <input type="checkbox" th:value="${importance}" id="importance" name="importance">
                     <label th:text="${importance}"></label>
                 </li>
@@ -64,14 +57,6 @@
     </div>
 </div>
 </div>
-
-
-<!--<div>-->
-<!--  <ul>-->
-<!--    <li>Settings</li>-->
-<!--    <li>Log Out</li>-->
-<!--  </ul>-->
-<!--</div>-->
 
 
 

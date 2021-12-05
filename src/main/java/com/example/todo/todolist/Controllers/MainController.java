@@ -23,10 +23,10 @@ public class MainController {
 
     @GetMapping("/")
     public String main(Model model) {
-//        Iterable<Task> tasks = taskService.loadAllTasks();
-//        model.addAttribute("tasks", tasks);
-//        model.addAttribute("importanceValues", List.of("important", "normal"));
-        return "hello";
+        Iterable<Task> tasks = taskService.loadAllTasks();
+        model.addAttribute("tasks", tasks);
+        model.addAttribute("importanceValues", List.of("important", "normal"));
+        return "main";
     }
 
     //    Show all tasks
@@ -61,8 +61,6 @@ public class MainController {
         Optional<Task> task = taskService.loadTask(id);
         model.addAttribute("task", task);
         model.addAttribute("importanceValues", List.of("important", "normal"));
-//        model.addAttribute("importanceValues", ImportanceValues.values());
-
         return "task-edit";
     }
 

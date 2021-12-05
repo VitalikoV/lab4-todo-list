@@ -2,14 +2,15 @@ package com.example.todo.todolist.Repository;
 
 import com.example.todo.todolist.Model.Priority;
 import com.example.todo.todolist.Model.Task;
+import com.example.todo.todolist.Model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface TaskRepository extends CrudRepository<Task, Integer> {
+public interface PriorityRepository extends CrudRepository<Priority, Integer> {
     @Override
-    Iterable<Task> findAll();
+    Iterable<Priority> findAll();
 
     @Override
-    Optional<Task> findById(Integer integer);
+    Optional<Priority> findById(Integer integer);
 }

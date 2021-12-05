@@ -32,16 +32,16 @@
         <input type="text" class="form__input" name="endTime" id="endTime" th:value="${task.get().getEndTime()}">
     </div>
 
-    <ul>
-    <li th:each="importance : ${importanceValues}">
+    <ul style="white-space:nowrap; list-style-type: none; margin-bottom: 10px">
+    <li style="display: inline; margin-right: 10px;" th:each="importance : ${importanceValues}">
     <input type="checkbox" th:value="${importance}" id="importance" name="importance">
         <label th:text="${importance}"></label>
     </li>
     </ul>
 
     <div class="template__buttons">
-        <button class="new__post__btn">cancel</button>
         <button class="new__post__btn" type="submit" formmethod="post">done</button>
+        <button class="new__post__btn">cancel</button>
     </div>
 </form>
 
